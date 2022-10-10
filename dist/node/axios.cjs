@@ -1,4 +1,4 @@
-// Axios v1.1.2 Copyright (c) 2022 Matt Zabriskie and contributors
+// Axios v1.1.3-alpha.1 Copyright (c) 2022 Matt Zabriskie and contributors
 'use strict';
 
 const FormData$1 = require('form-data');
@@ -1550,6 +1550,10 @@ Object.assign(AxiosHeaders.prototype, {
     if (utils.isPlainObject(header)) {
       utils.forEach(header, (_value, _header) => {
         setHeader(_value, _header, valueOrRewrite);
+      });
+    } else if (header instanceof AxiosHeaders){
+      Object.entries(header).forEach(([header, value]) => {
+        setHeader(value, header, rewrite);
       });
     } else {
       setHeader(valueOrRewrite, header, rewrite);
