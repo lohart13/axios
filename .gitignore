@@ -10,3 +10,4 @@ sauce_connect.log
 test/module/cjs/node_modules/
 test/module/cjs/package-lock.json
 backup/
+dist/
